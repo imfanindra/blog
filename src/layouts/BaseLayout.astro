@@ -4,7 +4,7 @@ import { SITE_NAV, SITE_TITLE } from "@/consts";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Fanindra Maharana` : "Fanindra Maharana";
-const metaDescription = description ? description : "Interaction Designer";
+const metaDescription = description ? description : "Fanindra Maharana is an Interaction Designer based in Visakhapatnam, India.";
 const ogImage = new URL('/og-image.webp', Astro.site).toString();
 ---
 
