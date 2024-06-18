@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400 600;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMonoVariableVF.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+}
+
+@layer base {
+  :root {
+    --page-primary: theme(colors.white);
+    --surface: theme(colors.neutral.100);
+    --text-color-primary: theme(colors.neutral.700);
+    --text-color-secondary: theme(colors.neutral.500);
+    --text-color-subtle: theme(colors.neutral.300);
+    --border-color-primary: theme(colors.neutral.200);
+    --decoration-color-subtle: theme(colors.neutral.300);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page-primary: theme(colors.neutral.900);
+      --surface: theme(colors.neutral.800);
+      --text-color-primary: theme(colors.neutral.100);
+      --text-color-secondary: theme(colors.neutral.400);
+      --text-color-subtle: theme(colors.neutral.500);
+      --border-color-primary: theme(colors.neutral.700);
+      --decoration-color-subtle: theme(colors.neutral.500);
+    }
+  }
+
+  html {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  /* Custom scrollbar for Webkit browsers (Chrome, Safari) */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--surface);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--text-color-secondary);
+    border-radius: 6px;
+    border: 1px solid var(--surface);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-color-primary);
+  }
+
+  /* Custom scrollbar for Firefox */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-color-secondary) var(--surface);
+  }
+
+  body {
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+}
+
+@layer components {
+  .prose :where(* + *) {
+    @apply mt-4;
+  }
+
+  .prose :where(h2, h3) {
+    @apply font-semibold scroll-mt-4;
+  }
+
+  .prose :where(* + h2, * + h3, * + details) {
+    @apply mt-8;
+  }
+
+  .prose :where(p:has(small) ~ h2) {
+    @apply mt-0.5;
+  }
+
+  .prose :where(a) {
+    @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-green-500 decoration-[0.1071428571rem];
+  }
+
+  .prose :where(strong) {
+    @apply font-semibold;
+  }
+
+  .prose :where(ul) {
+    @apply pl-6 space-y-0.5 list-square marker:text-[var(--text-color-subtle)];
+  }
+
+  .prose :where(ul li ul) {
+    @apply mt-0.5;
+  }
+
+  .prose :where(code),
+  .prose :where(kbd) {
+    @apply bg-neutral-100 dark:bg-neutral-800 py-px px-1 rounded;
+  }
+
+  .prose :where(pre) {
+    @apply !bg-neutral-100 dark:!bg-neutral-800 text-sm rounded p-4;
+  }
+
+  .prose :where(dl) {
+    @apply grid grid-cols-[max-content_minmax(0,1fr)];
+  }
+
+  .prose :where(dt) {
+    @apply m-0 pr-8 py-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed text-secondary;
+  }
+
+  .prose :where(dd) {
+    @apply m-0 py-2 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed;
+  }
+
+  .prose :where(dt:first-of-type),
+  .prose :where(dd:first-of-type) {
+    @apply pt-0;
+  }
+
+  .prose :where(dt:last-of-type),
+  .prose :where(dd:last-of-type) {
+    @apply pb-0;
+  }
+
+  .prose :where(blockquote) {
+    @apply border-l-[0.1875rem] border-[var(--text-color-subtle)] pl-5 ml-3;
+  }
+
+  .prose :where(table) {
+    @apply w-full;
+  }
+
+  .prose :where(tr:not(:last-child) > td) {
+    @apply pb-2;
+  }
+
+  .prose :where(th) {
+    @apply pb-2 font-semibold;
+  }
+
+  .prose :where(th:not([align="right"])) {
+    @apply text-left;
+  }
+
+  .prose :where(td) {
+    @apply pt-2 border-t border-dashed border-primary align-top;
+  }
+
+  .prose :where(tr:first-of-type td) {
+    @apply border-solid;
+  }
+
+  .prose :where(td + td),
+  .prose :where(th + th) {
+    @apply pl-2;
+  }
+
+  .prose :where(td[align="right"]) {
+    @apply font-mono text-secondary text-nowrap;
+  }
+
+  .prose :where(small) {
+    @apply text-neutral-500 text-xs uppercase font-mono px-1 py-px rounded tracking-wider bg-neutral-100 border border-transparent dark:bg-neutral-800 dark:text-neutral-400 -translate-y-px;
+  }
+
+  .prose :where(hr) {
+    @apply my-8 border-primary border-dashed;
+  }
+
+  .prose :where(.contains-task-list) {
+    @apply list-none pl-1.5;
+  }
+
+  .prose :where(summary) {
+    @apply font-semibold cursor-pointer;
+  }
+}
