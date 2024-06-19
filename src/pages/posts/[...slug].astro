@@ -31,4 +31,12 @@ const date = post.data.published;
       <Content />
     </article>
   </section>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const links = document.querySelectorAll('.prose a');
+      links.forEach(link => {
+        link.setAttribute('target', '_blank');
+      });
+    });
+  </script>
 </BaseLayout>

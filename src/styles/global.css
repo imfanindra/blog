@@ -42,6 +42,7 @@
   html {
     font-size: 0.9rem;
     line-height: 1.75;
+    @apply selection:bg-rose-500;
   }
 
   /* Custom scrollbar for Webkit browsers (Chrome, Safari) */
@@ -76,7 +77,11 @@
 
 @layer components {
   .prose :where(* + *) {
-    @apply mt-4;
+    @apply mt-2;
+  }
+
+  .prose :where(p + p) {
+    @apply mt-2;
   }
 
   .prose :where(h2, h3) {
@@ -92,7 +97,7 @@
   }
 
   .prose :where(a) {
-    @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-green-500 decoration-[0.1071428571rem];
+    @apply underline underline-offset-4 transition-colors decoration-[var(--decoration-color-subtle)] hover:decoration-rose-500;
   }
 
   .prose :where(strong) {
@@ -100,12 +105,23 @@
   }
 
   .prose :where(ul) {
-    @apply pl-6 space-y-0.5 list-square marker:text-[var(--text-color-subtle)];
+    @apply pl-8 space-y-2 list-disc marker:text-[var(--text-color-primary)];
+  }
+  
+
+  .prose :where(ul li) {
+    @apply mt-1 pl-2;
   }
 
-  .prose :where(ul li ul) {
-    @apply mt-0.5;
+  .prose :where(ol) {
+    @apply pl-8 space-y-2 list-decimal marker:text-[var(--text-color-primary)];
   }
+  
+  .prose :where(ol li) {
+    @apply pl-2;
+    font-variant-numeric: tabular-nums;
+  }
+  
 
   .prose :where(code),
   .prose :where(kbd) {
