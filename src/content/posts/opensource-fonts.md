@@ -34,7 +34,7 @@ Here’s where the fun begins! Check out these stellar sources:
 
 1. **Google Fonts -** https://fonts.google.com/ 
 2. **Fontshare -** https://www.fontshare.com/
-3. **Uncut** - https://uncut.wtf/
+3. **Uncut -** https://uncut.wtf/
 4. **Freefaces Gallery -** https://www.freefaces.gallery/
 5. **Open Foundry -** https://open-foundry.com/
 6. **GitHub**
@@ -51,7 +51,7 @@ Here are some gems I swear by, categorized for your convenience:
 - Uncut Sans - https://uncut.wtf/sans-serif/uncut-sans/
 - Satoshi - https://fontshare.com/fonts/satoshi
 - Switzer - https://www.fontshare.com/fonts/switzer
-- Aspekta ****- https://uncut.wtf/sans-serif/aspekta/
+- Aspekta - https://uncut.wtf/sans-serif/aspekta/
 - Plus Jakarta Sans - https://fonts.google.com/specimen/Plus+Jakarta+Sans
 - Figtree - https://fonts.google.com/specimen/Figtree
 
