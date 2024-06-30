@@ -6,7 +6,7 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     fontFamily: {
-      sans: ["Uncut Sans", ...defaultTheme.fontFamily.sans],
+      sans: ["Inter", ...defaultTheme.fontFamily.sans],
       mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
     },
     fontSize: {

@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Uncut Sans";
-  src: url("/fonts/UncutSans-Variable.woff2") format("woff2");
+  font-family: "Inter";
+  src: url("/fonts/InterVariable.woff2") format("woff2");
   font-display: swap;
-  font-weight: 500 700;
+  font-weight: 400 700;
 }
 
 @font-face {
@@ -86,7 +86,7 @@
   }
 
   .prose :where(h2, h3) {
-    @apply font-semibold scroll-mt-4;
+    @apply font-bold scroll-mt-4;
   }
 
   .prose :where(* + h2, * + h3, * + details) {
