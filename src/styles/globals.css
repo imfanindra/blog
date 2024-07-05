@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/InterVariable.woff2") format("woff2");
+}
+
+
+html {
+  @apply font-sans antialiased transition-colors;
+  font-family: "Inter";
+  text-rendering: optimizeLegibility;
+  scrollbar-gutter: stable;
+  text-wrap: pretty;
+}
+
+body {
+  @apply bg-white font-medium leading-7 tracking-tight text-neutral-600;
+}
+
+h1,
+h2 {
+  @apply font-semibold text-black;
+}
+
+::-moz-selection {
+  @apply bg-theme-orange text-white;
+}
+
+::selection {
+  @apply bg-theme-orange text-white;
+}

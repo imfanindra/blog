@@ -1,0 +1,23 @@
+---
+const { title, href, date } = Astro.props;
+
+const formattedDate = new Date(date).toLocaleDateString(
+  "en-IN",
+  { day: "2-digit", month: "2-digit", year: "2-digit" }
+);
+---
+
+<a
+  href={href}
+  id="list-element"
+  class="group flex items-center gap-2 py-1 transition-opacity first-of-type:pt-0 last-of-type:pb-0 hover:!opacity-100">
+  <div class="gap-2 truncate">
+    <span class="group-hover:text-black tabular-nums">
+      {title}
+    </span>
+  </div>
+  <div class="h-px flex-grow bg-neutral-200"></div>
+  <div class="whitespace-nowrap text-neutral-400">
+    {formattedDate}
+  </div>
+</a>
