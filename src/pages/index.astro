@@ -1,80 +1,46 @@
 ---
-import Card from "@components/Card.astro";
-import Wrapper from "@components/Wrapper.astro";
-import Layout from "@layouts/Layout.astro";
-import { sortPosts } from "@utils/utils";
-import ArrowUpRight from "node_modules/lucide-astro/dist/ArrowUpRight.astro";
+import { getCollection } from "astro:content";
+import { sortPostsByDate } from "../lib/date";
+import Base from "../layouts/Base.astro";
+import PostRow from "../components/PostRow.astro";
+import Link from "../components/Link.vue";
 
-const posts = sortPosts(
-  await Astro.glob("../pages/posts/*.mdx")
+// const projects = await getProjects(6)
+const posts = sortPostsByDate(
+  await getCollection("blog", ({ data }) => data.isDraft !== true)
 );
+
+const title = "Fanindra Maharana — Blog";
 ---
 
-<Layout title="Fanindra Maharana">
-  <Wrapper shouldWrapMdx={false}>
-    <h1>Fanindra Maharana</h1>
+<Base
+  {title}
+  description="This is the personal blog of Fanindra Maharana, an Interaction Design student at JKLU, Jaipur."
+  image="og.png"
+>
+  <h1 slot="header-content" class="text-neutral-500">Fanindra Maharana</h1>
 
-    <main class="mx-auto mt-8">
+  <main class="prose">
+    <p>
+      <small class="text-neutral-500">IPA - /fʌ - nɪn - dhɹʌ/ </small>
+      <br />
 
-      <header class="mt-8">
-        <div class="flex flex-col gap-2">
-          <small class="text-[0.7rem] tracking-wide text-neutral-500">IPA — / FɅ - NꞮN - DHɹɅ /</small>
-          <p>
-            Hi there, I'm Fanindra, an Interaction Designer specialized in handcrafting digital experiences with empathy, innovation, and purpose. Check out my <a href="https://www.fanindra.xyz/" target="_blank" class="underline underline-offset-2 decoration-wavy decoration-theme-orange"> Portfolio Website</a> to see my work. This is my personal blog where I occasionally write on design, tech, and more.
-          </p>
+      Hi, I'm Fanindra, an Interaction Designer specialized in handcrafting
+      digital experiences with empathy, innovation, and purpose. Check out my
+      <Link href="https://www.fanindra.xyz/"> Portfolio Website </Link> to see my
+      work. This is my personal blog where I occasionally write on design, tech,
+      and more.
+      <p>
+        Get in touch — <Link href="mailto:imfanindra@gmail.com">imfanindra@gmail.com</Link> or 
+      <Link href="https://www.linkedin.com/in/fanindra-m/">Linkedin</Link>
+    </p>
 
-          <section class="mt-8">
-            <h2 class="mb-4">My thoughts lately</h2>
-            <div class="[&>#list-element]:hover:opacity-70">
-              {
-                posts.map((post) => {
-                  const { title, date, type } =
-                    post.frontmatter;
+      <div class="mt-12"></div>
+      <h2>Recent Posts</h2>
 
-                  return (
-                    <Card
-                      date={date}
-                      title={title}
-                      href={post.url}
-                      type={type}
-                    />
-                  );
-                })
-              }
-            </div>
-          </section>
-
-          <footer class="mt-8">
-            <h2 class="mb-4">Get in touch</h2>
-            <div class="flex flex-col space-y-2">
-                <a
-                  href="https://www.linkedin.com/in/fanindra-m/"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  ><span
-                    class="underline underline-offset-2 decoration-wavy decoration-theme-orange"
-                    >LinkedIn</span
-                  >
-                  <ArrowUpRight
-                    class="-ml-0.5 inline h-3 w-3 align-text-top"
-                  />
-                </a>
-                <a
-                  href="mailto:imfanindra@gmail.com"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  ><span
-                    class="underline underline-offset-2 decoration-wavy decoration-theme-orange"
-                    >Email</span
-                  >
-                  <ArrowUpRight
-                    class="-ml-0.5 inline h-3 w-3 align-text-top"
-                  />
-                </a>
-              </div>
-          </footer>
-        </div>
-      </header>
-    </main>
-  </Wrapper>
-</Layout>
+      <div class="flex flex-col gap-4">
+        {posts.map((post) => <PostRow {post} />)}
+      </div>
+    </p>
+  </main>
+</Base>
