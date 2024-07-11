@@ -24,7 +24,7 @@ const { Content } = await post.render();
 <Base
   {title}
   description={description}
-  image={'og.png'}
+  image={'/og.png'}
 >
   <div class="prose tracking-wide">
     {isDraft && (
@@ -34,7 +34,7 @@ const { Content } = await post.render();
     )}
 
     <h1 class="mt-4">{title}</h1>
-    <p class="text-neutral-500 mb-8">{description}</p>
+    <p class="text-neutral-500 mb-4">{description}</p>
       <Content />
     </div>
 </Base>

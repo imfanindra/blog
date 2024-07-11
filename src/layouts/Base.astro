@@ -64,7 +64,7 @@ const { title, description, image } = Astro.props
   <body>
     <div class="mx-auto max-w-container px-4">
 
-      <header class="h-37.5px flex items-center justify-between -mt-2">
+      <header class="flex items-center justify-between">
         <slot name="header-content">
           <Link href="/" class="no-underline opacity-50 hover:opacity-100">← back</Link>
         </slot>
@@ -113,7 +113,7 @@ html {
 }
 
 html {
-  @apply antialiased touch-manipulation scroll-smooth text-base;
+  @apply antialiased touch-manipulation scroll-smooth;
   text-rendering: optimizeLegibility;
 
   &.dark {
@@ -122,12 +122,12 @@ html {
 }
 
 * {
-  @apply outline-black selection-(bg-rose-200 text-black)
+  @apply outline-black selection-(bg-zinc-200 text-black)
 }
 
 body {
   font-family: "Inter", "Inter Fallback";
-  @apply text-neutral-900 bg-white font-medium px-0 tracking-[-0.002rem] md:px-4 py-4 md:py-8 relative min-h-screen text-sm md:text-base;
+  @apply text-neutral-500 bg-white font-medium px-0 tracking-[-0.002rem] md:px-4 py-4 md:py-8 relative min-h-screen text-[0.875rem];
 }
 
 code, pre {
@@ -138,25 +138,25 @@ code, pre {
   @apply max-w-container [&>:not(:last-child)]:mb-4 tracking-[-0.002rem];
 
   & p {
-    @apply my-2 line-height-7 font-medium;
+    @apply my-2 line-height-6 font-medium;
   }
 
   & h1,
   & h2,
   & h3 {
-    @apply text-black font-semibold;
+    @apply text-black font-medium;
   }
 
   & h1 {
-    @apply text-[1.125rem] my-12;
+    @apply text-[1.1rem] my-10;
   }
 
   & h2 {
-    @apply text-[1.075rem] my-10;
+    @apply text-[1rem] my-8;
   }
 
   & h3 {
-    @apply text-[1.005rem] my-6;
+    @apply text-[0.9rem] my-2;
   }
 
   & strong {
@@ -180,7 +180,7 @@ code, pre {
   }
 
   & blockquote {
-    @apply border-l-4 border-rose-500 px-6 py-3 bg-neutral-100 text-black;
+    @apply border-l-4 border-zinc-500 px-6 py-3 bg-neutral-100 text-black;
   }
 }
 </style>

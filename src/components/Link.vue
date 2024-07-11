@@ -10,7 +10,7 @@ const isExternal = computed(() => props.href.startsWith("http"));
   <a
     :href="props.href"
     :target="isExternal ? '_blank' : '_self'"
-    class="underline decoration-neutral-600 underline-offset-4 transition-colors focus:(decoration-neutral-500 outline-offset-6) hover:(decoration-neutral-400)"
+    class="underline decoration-neutral-500 underline-offset-4 transition-colors hover:(decoration-black text-black)"
   >
     <slot />
   </a>

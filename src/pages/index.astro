@@ -16,31 +16,32 @@ const title = "Fanindra Maharana — Blog";
 <Base
   {title}
   description="This is the personal blog of Fanindra Maharana, an Interaction Design student at JKLU, Jaipur."
-  image="og.png"
+  image="/og.png"
 >
-  <h1 slot="header-content" class="text-neutral-500">Fanindra Maharana</h1>
+  <h1 slot="header-content" class="text-black">Fanindra Maharana</h1>
 
-  <main class="prose">
-    <p>
-      <small class="text-neutral-500">IPA - /fʌ - nɪn - dhɹʌ/ </small>
-      <br />
+  <main class="prose mt-8">
+    <small>IPA - /fʌ - nɪn - dhɹʌ/ </small>
 
+    <p class="text-black space-y-4">
       Hi, I'm Fanindra, an Interaction Designer specialized in handcrafting
-      digital experiences with empathy, innovation, and purpose. Check out my
+      digital experiences with empathy, innovation, and purpose. Currently, I'm pursuing my M. Des in Interaction Design at JKLU, Jaipur.      Check out my
       <Link href="https://www.fanindra.xyz/"> Portfolio Website </Link> to see my
       work. This is my personal blog where I occasionally write on design, tech,
       and more.
-      <p>
-        Get in touch — <Link href="mailto:imfanindra@gmail.com">imfanindra@gmail.com</Link> or 
+    </p>
+    <p>
+      <span class="text-black">Get in touch </span>— <Link href="mailto:imfanindra@gmail.com"
+        >imfanindra@gmail.com</Link
+      > /
       <Link href="https://www.linkedin.com/in/fanindra-m/">Linkedin</Link>
     </p>
 
-      <div class="mt-12"></div>
-      <h2>Recent Posts</h2>
+    <div class="mt-12"></div>
+    <h2 class="text-black">Recent Posts</h2>
 
-      <div class="flex flex-col gap-4">
-        {posts.map((post) => <PostRow {post} />)}
-      </div>
-    </p>
+    <div class="flex flex-col gap-4">
+      {posts.map((post) => <PostRow {post} />)}
+    </div>
   </main>
 </Base>
