@@ -21,15 +21,16 @@ const title = "Fanindra Maharana — Blog";
   <h1 slot="header-content" class="text-black">Fanindra Maharana</h1>
 
   <main class="prose mt-8">
-    <small>IPA - /fʌ - nɪn - dhɹʌ/ </small>
+    <small>IPA - / f ʌ n ɪ n d h ɹ ʌ / </small>
 
     <p class="text-black space-y-4">
-      Hi, I'm Fanindra, an Interaction Designer specialized in handcrafting
-      digital experiences with empathy, innovation, and purpose. Currently, I'm pursuing my M. Des in Interaction Design at JKLU, Jaipur.      Check out my
-      <Link href="https://www.fanindra.xyz/"> Portfolio Website </Link> to see my
-      work. This is my personal blog where I occasionally write on design, tech,
-      and more.
-    </p>
+      Hi, I'm Fanindra. Welcome to my corner on the internet. Here, I write on design, tech, and more. I'm an Interaction Designer specialized in handcrafting
+      digital experiences with empathy, innovation, and purpose. Currently pursuing M. Des in Interaction Design at JKLU, Jaipur.
+      
+      
+      <p> <span class="text-black">To checkout the design projects I've worked on, visit my </span>
+      <Link href="https://www.fanindra.xyz/"> Portfolio Website </Link>
+    </p></p>
     <p>
       <span class="text-black">Get in touch </span>— <Link href="mailto:imfanindra@gmail.com"
         >imfanindra@gmail.com</Link
@@ -39,7 +40,6 @@ const title = "Fanindra Maharana — Blog";
 
     <div class="mt-12"></div>
     <h2 class="text-black">Recent Posts</h2>
-
     <div class="flex flex-col gap-4">
       {posts.map((post) => <PostRow {post} />)}
     </div>
