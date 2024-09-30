@@ -14,8 +14,8 @@ export default defineConfig({
       "neutral-850": "#1f1f1f",
     },
     fontFamily: {
-      sans: "Switzer",
-      mono: "Hack",
+      sans: "Geist",
+      mono: "GeistMono",
     },
     maxWidth: {
       container: "43rem",
