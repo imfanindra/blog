@@ -1,0 +1,46 @@
+---
+import "@fontsource/geist-mono";
+import "@styles/globals.css";
+
+const { title } = Astro.props;
+
+const metaDescription =
+  "The public journal of Fanindra Maharana, an Interaction Design student at JKLU, Jaipur.";
+const metaTitle = "Fanindra Maharana - Public Journal";
+const ogImage = "/og.png";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={metaDescription} />
+    <meta name="viewport" content="width=device-width" />
+
+    <meta name="theme-color" content="#FF7F50" />
+
+    <meta property="og:title" content={metaTitle} />
+    <meta
+      property="og:description"
+      content={metaDescription}
+    />
+    <meta property="og:image" content={ogImage} />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon.svg"
+    />
+
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+  </head>
+
+  <body class="m-8">
+    <slot />
+  </body>
+</html>

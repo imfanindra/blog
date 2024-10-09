@@ -1,0 +1,50 @@
+---
+import Container from "@components/Container.astro";
+import Footer from "@components/project/Footer.astro";
+import Header from "@components/project/Header.astro";
+import Layout from "@layouts/Layout.astro";
+import { sortPosts } from "@utils/utils";
+
+const { frontmatter } = Astro.props;
+
+const posts = sortPosts(
+  await Astro.glob("../pages/journal/*.mdx")
+);
+
+const currPostIdx = posts.findIndex(
+  (post) => post.frontmatter.title === frontmatter.title
+);
+const prevProject = posts[currPostIdx - 1];
+const nextProject = posts[currPostIdx + 1];
+
+const prevTitle = prevProject?.frontmatter?.title;
+const nextTitle = nextProject?.frontmatter?.title;
+---
+
+<Layout title={frontmatter.title}>
+  <Header {...frontmatter} />
+
+  <Container shouldWrapMdx>
+    <slot />
+  </Container>
+
+  <Container>
+    <div class="my-8 flex justify-center">
+      <a
+        class="select-none rounded-full bg-white px-4 py-2 shadow-[0_4px_0px_0px_black] outline outline-1 outline-black transition-all hover:cursor-pointer hover:bg-theme-yellow focus:outline-2 focus:outline-black focus-visible:outline-1 focus-visible:outline-offset-0 active:translate-y-1 active:shadow-none"
+        href="https://www.linkedin.com/in/fanindra-m/"
+        target="_blank">Get in touch on LinkedIn!</a
+      >
+    </div>
+  </Container>
+
+  <div class="mx-auto my-8 h-px max-w-prose bg-neutral-200">
+  </div>
+
+  <Footer
+    previous={prevProject}
+    next={nextProject}
+    previousTitle={prevTitle}
+    nextTitle={nextTitle}
+  />
+</Layout>

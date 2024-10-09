@@ -1,0 +1,53 @@
+<div class="project"><slot /></div>
+
+<style is:global>
+  .project {
+    @apply flex flex-col gap-2;
+  }
+
+  .project h1 {
+    @apply mt-6 font-medium text-black text-[1.125rem];
+  }
+
+  .project h2 {
+    @apply mt-4 font-medium text-black text-[1rem];
+  }
+
+  .project h3 {
+    @apply mt-2 font-medium text-black text-[0.875rem];
+  }
+
+  .project p {
+    @apply text-neutral-500;
+  }
+
+  .project strong {
+    @apply font-medium text-black;
+  }
+
+  .project small{
+    @apply font-medium mt-2 text-[0.75rem];
+  }
+
+  .project ul,
+  .project ol {
+    @apply list-disc list-inside text-neutral-500;
+  }
+
+  .project li {
+    @apply text-neutral-500;
+  }
+
+
+  .project a {
+    @apply underline hover:decoration-black hover:text-black underline-offset-2;
+  }
+
+  .project img.inline {
+    @apply my-3;
+  }
+
+  .project blockquote {
+    @apply my-3 border-l-4 border-theme-yellow bg-neutral-100/50 text-black px-4 py-4;
+  }
+</style>

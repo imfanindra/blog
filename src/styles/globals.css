@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply font-sans antialiased transition-colors;
+  text-rendering: optimizeLegibility;
+  scrollbar-gutter: stable;
+}
+
+body {
+  @apply bg-[#fff] font-medium text-[0.875rem] tracking-[-0.0125rem] leading-6 text-[#020617];
+}
+
+h1,
+h2 {
+  @apply font-medium;
+}
+
+::-moz-selection {
+  @apply bg-[#FFF9E2];
+}
+
+::selection {
+  @apply bg-[#FFF9E2];
+}
+
+code {
+  font-family: "Geist Mono", monospaced;
+}

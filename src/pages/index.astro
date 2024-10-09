@@ -1,46 +1,102 @@
 ---
-import { getCollection } from "astro:content";
-import { sortPostsByDate } from "../lib/date";
-import Base from "../layouts/Base.astro";
-import PostRow from "../components/PostRow.astro";
-import Link from "../components/Link.vue";
+import Card from "@components/Card.astro";
+import Container from "@components/Container.astro";
+import Content from "@components/content/Content.astro";
+import Link from "@components/footer/Link.astro";
+import Layout from "@layouts/Layout.astro";
+import { sortPosts } from "@utils/utils";
 
-// const projects = await getProjects(6)
-const posts = sortPostsByDate(
-  await getCollection("blog", ({ data }) => data.isDraft !== true)
+const posts = sortPosts(
+  await Astro.glob("../pages/journal/*.mdx")
 );
-
-const title = "Fanindra Maharana — Blog";
 ---
 
-<Base
-  {title}
-  description="This is the personal blog of Fanindra Maharana, an Interaction Design student at JKLU, Jaipur."
-  image="/og.png"
->
-  <h1 slot="header-content" class="text-black">Fanindra Maharana</h1>
+<Layout title="Fanindra Maharana">
+  <Container shouldWrapMdx={false}>
+    <header
+      class="mx-auto mt-8 animate-slidein opacity-0 [--slidein-delay:0ms]">
+      <div class="flex justify-between">
+        <h1>Fanindra Maharana</h1>
 
-  <main class="prose mt-8">
-    <small class="font-mono">IPA-/fʌnɪndhɹʌ/ </small>
+        <nav>
+          <ul class="flex gap-2">
+            <li>
+              <a
+                href="/designs"
+                class="text-neutral-500 hover:text-inherit"
+                >Design dump</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-    <p class="text-black space-y-4">
-      Hi, I'm Fanindra. Welcome to my corner on the internet. This is my public journal where I write about my experiences, updates, and thoughts on design, tech, and more. I'm an Interaction Designer specialized in handcrafting digital experiences with empathy, innovation, and purpose. Currently pursuing M. Des in Interaction Design at JKLU, Jaipur.
-      
-      
-      <p> <span class="text-black">To checkout the design projects I've worked on, visit my </span>
-      <Link href="https://www.fanindra.xyz/"> Portfolio Website </Link>
-    </p></p>
-    <p>
-      <span class="text-black">Get in touch </span>— <Link href="mailto:imfanindra@gmail.com"
-        >imfanindra@gmail.com</Link
-      > or
-      <Link href="https://www.linkedin.com/in/fanindra-m/">Linkedin</Link>
-    </p>
+      <div
+        class="group relative mt-8 select-none"
+        id="hero-image">
+        <img src="image.jpg" alt="notion style illustration">
+      </div>
+    </header>
 
-    <div class="mt-12"></div>
-    <h2 class="text-black">Recent Posts</h2>
-    <div class="flex flex-col gap-4">
-      {posts.map((post) => <PostRow {post} />)}
-    </div>
-  </main>
-</Base>
+    <main class="mt-8 flex flex-col gap-8">
+      <Content
+        title="About"
+        className="animate-slidein opacity-0 [--slidein-delay:200ms]">
+        <p>
+          Hi, I'm Fanindra. Welcome to my corner on the internet. I'm an Interaction Designer specialized in handcrafting digital experiences with empathy, innovation, and purpose. Currently pursuing M. Des in Interaction Design at JKLU, Jaipur.
+        </p>
+        <p>
+          This is my public journal where I write about my experiences, updates, and thoughts on design, tech, and more. 
+        </p>
+
+        <p>
+          If you don't find me on the internet, I am either walking, watching cricket, satisfying my foodie soul, organizing stuff, or exploring new hobbies and places.
+        </p>
+        <p>
+          To checkout the design projects I've worked on, visit my <a class="underline underline-offset-2" href="https://www.fanindra.xyz/">Portfolio Website</a>
+        </p>
+      </Content>
+
+      <Content
+        title="Stuff that's on my mind"
+        className="animate-slidein opacity-0 [--slidein-delay:600ms]">
+        <div class="[&>#list-element]:hover:opacity-50">
+          {
+            posts.map((post) => (
+              <Card
+                date={post.frontmatter.date}
+                description={post.frontmatter.description}
+                href={post.url}
+                type={post.frontmatter.type}
+              />
+            ))
+          }
+        </div>
+      </Content>
+    </main>
+
+    <footer
+      class="mt-16 animate-slidein opacity-0 [--slidein-delay:800ms]">
+      <Content title="Get in touch">
+        <ul role="list">
+
+          <Link
+          href="mailto:imfanindra@gmail.com"
+          title="E-mail"
+          withIcon={false}
+        />
+
+          <Link
+            href="https://www.linkedin.com/in/fanindra-m/"
+            title="LinkedIn"
+          />
+
+          <Link
+            href="https://read.cv/fanindra_maharana"
+            title="CV"
+          />
+        </ul>
+      </Content>
+    </footer>
+  </Container>
+</Layout>

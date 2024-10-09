@@ -1,3 +1,3 @@
-# Personal Blog
+# Personal portfolio
 
-This is my personal blog where I occasionally write on design, tech, and more
+Personal portfolio written using Astro & TailwindCSS.

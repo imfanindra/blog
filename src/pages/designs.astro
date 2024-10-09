@@ -1,0 +1,42 @@
+---
+import Container from "@components/Container.astro";
+import Header from "@components/project/Header.astro";
+import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+import type { ImageMetadata } from "astro";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/photos/*.{jpeg,jpg,png,gif,webp}"
+);
+
+const importFns: Array<() => any> = Object.values(images);
+---
+
+<Header
+  title="Design dump"
+  description="A few cool designs I have worked on"
+/>
+
+<Container shouldWrapMdx>
+  Here are a few of my design explorations over the past 2 years. Includes typography, layout, word and image, animations, ui design concepts, course work assignments' explorations.
+</Container>
+
+<Layout title="Designs">
+  <div
+    class="mt-4 columns-1 lg:w-full lg:columns-3 lg:gap-2">
+    {
+      importFns.map((importFn) => {
+        return (
+          <div class="inline-block w-full break-inside-avoid">
+            <Image
+              class="rounded-lg"
+              src={importFn()}
+              alt="An image most likely taken with a Fujifilm camera"
+            />
+          </div>
+        );
+      })
+    }
+  </div>
+</Layout>
