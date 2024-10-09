@@ -1,3 +1,1 @@
-# Personal portfolio
-
-Personal portfolio written using Astro & TailwindCSS.
+This is my public journal where I write about my experiences, updates, and thoughts on design, tech, and more.
