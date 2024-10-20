@@ -38,40 +38,40 @@ const posts = sortPosts(
       </div>
     </header>
 
-    <main class="mt-8 flex flex-col gap-8">
+    <main class="mt-8 flex flex-col gap-12">
+      <Content
+      title="Stuff that's on my mind"
+      className="animate-slidein opacity-0 [--slidein-delay:200ms]">
+      <div class="[&>#list-element]:hover:opacity-50">
+        {
+          posts.map((post) => (
+            <Card
+              date={post.frontmatter.date}
+              description={post.frontmatter.description}
+              href={post.url}
+              type={post.frontmatter.type}
+            />
+          ))
+        }
+      </div>
+    </Content>
+
       <Content
         title="About"
-        className="animate-slidein opacity-0 [--slidein-delay:200ms]">
-        <p>
+        className="animate-slidein opacity-0 [--slidein-delay:600ms]">
+        <p class="text-neutral-500">
           Hi, I'm Fanindra. Welcome to my corner on the internet. I'm an Interaction Designer specialized in handcrafting digital experiences with empathy, innovation, and purpose. Currently pursuing M. Des in Interaction Design at JKLU, Jaipur.
         </p>
-        <p>
+        <p class="text-neutral-500">
           This is my public journal where I write about my experiences, updates, and thoughts on design, tech, and more. 
         </p>
 
-        <p>
-          If you don't find me on the internet, I am either walking, watching cricket, satisfying my foodie soul, organizing stuff, or exploring new hobbies and places.
+        <p class="text-neutral-500">
+          Beyond the screen, you'll catch me watching cricket, diving into architecture, or geeking out on tech and minimalism. Whether it’s discussing movies, maps, or geopolitics, I’m always up for a good chat. Offline? I’m out exploring, indulging my foodie side, organizing, or picking up new hobbies.
         </p>
-        <p>
+        <p class="text-neutral-500">
           To checkout the design projects I've worked on, visit my <a class="underline underline-offset-2" href="https://www.fanindra.xyz/">Portfolio Website</a>
         </p>
-      </Content>
-
-      <Content
-        title="Stuff that's on my mind"
-        className="animate-slidein opacity-0 [--slidein-delay:600ms]">
-        <div class="[&>#list-element]:hover:opacity-50">
-          {
-            posts.map((post) => (
-              <Card
-                date={post.frontmatter.date}
-                description={post.frontmatter.description}
-                href={post.url}
-                type={post.frontmatter.type}
-              />
-            ))
-          }
-        </div>
       </Content>
     </main>
 
