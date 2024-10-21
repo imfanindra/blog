@@ -1,10 +1,16 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme'); // Import defaultTheme
+
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
         "theme-yellow": "#FFE984",
+      },
+      fontFamily: {
+        sans: ["Uncut Sans", ...defaultTheme.fontFamily.sans],
+        serif: ["Georgia", ...defaultTheme.fontFamily.serif],
       },
       keyframes: {
         slidein: {
@@ -19,8 +25,7 @@ module.exports = {
         },
       },
       animation: {
-        slidein:
-          "slidein 0.5s ease var(--slidein-delay, 0) forwards",
+        slidein: "slidein 0.5s ease var(--slidein-delay, 0) forwards",
       },
     },
     screens: {

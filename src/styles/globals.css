@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Uncut Sans';
+  src: url('/UncutSans.woff2') format('woff2');
+  font-weight: 400 600;
+  font-style: normal;
+}
+
 html {
   @apply font-sans antialiased transition-colors;
   text-rendering: optimizeLegibility;
@@ -9,7 +16,7 @@ html {
 }
 
 body {
-  @apply bg-[#fff] font-medium text-[0.875rem] tracking-[-0.0125rem] leading-6 text-[#020617];
+  @apply bg-[#fff] font-medium text-[0.875rem] leading-6 text-[#020617];
 }
 
 h1,
