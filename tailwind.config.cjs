@@ -9,7 +9,7 @@ module.exports = {
         "theme-yellow": "#FFE984",
       },
       fontFamily: {
-        sans: ["Uncut Sans", ...defaultTheme.fontFamily.sans],
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
         serif: ["Georgia", ...defaultTheme.fontFamily.serif],
       },
       keyframes: {

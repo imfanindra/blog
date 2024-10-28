@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Uncut Sans';
-  src: url('/UncutSans.woff2') format('woff2');
+  font-family: 'Inter';
+  src: url('/Inter.woff2') format('woff2');
   font-weight: 400 600;
   font-style: normal;
 }
@@ -20,7 +20,7 @@ body {
 }
 
 h1,
-h2 {
+h2, h3 {
   @apply font-medium;
 }
 
@@ -30,8 +30,4 @@ h2 {
 
 ::selection {
   @apply bg-[#FFF9E2];
-}
-
-code {
-  font-family: "Geist Mono", monospaced;
 }
