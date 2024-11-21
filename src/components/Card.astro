@@ -1,5 +1,5 @@
 ---
-const { description, href, date, type } = Astro.props;
+const { title, href, date, type } = Astro.props;
 
 let bubbleColor;
 
@@ -37,7 +37,7 @@ const formattedDate = new Date(date).toLocaleDateString("en-GB", {
       ]}>
     </div>
     <span class="group-hover:text-[#111111]">
-      {description}
+      {title}
     </span>
   </div>
   <div class="h-px flex-grow bg-neutral-300"></div>
