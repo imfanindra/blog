@@ -9,8 +9,8 @@ module.exports = {
         "theme-yellow": "#FFE984",
       },
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
-        serif: ["Georgia", ...defaultTheme.fontFamily.serif],
+        sans: ["Geist", ...defaultTheme.fontFamily.sans],
+        serif: [...defaultTheme.fontFamily.serif],
       },
       keyframes: {
         slidein: {

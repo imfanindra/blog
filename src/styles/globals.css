@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Inter';
-  src: url('/Inter.woff2') format('woff2');
-  font-weight: 400 700;
+  font-family: 'Geist';
+  src: url('/Geist.woff2') format('woff2');
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -16,18 +16,22 @@ html {
 }
 
 body {
-  @apply bg-[#fff] font-medium text-[0.875rem] leading-6 text-[#020617];
+  @apply bg-[#fff] font-medium text-[0.9rem] leading-[1.65rem] text-neutral-500;
+}
+
+b {
+  @apply font-medium text-black;
 }
 
 h1,
 h2, h3 {
-  @apply font-bold;
+  @apply font-medium text-black;
 }
 
 ::-moz-selection {
-  @apply bg-[#FFF9E2];
+  @apply bg-[#FFF9E3];
 }
 
 ::selection {
-  @apply bg-[#FFF9E2];
+  @apply bg-[#FFF9E3];
 }
